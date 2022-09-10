@@ -81,10 +81,10 @@ public class CharacterController : MonoBehaviour
         _body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
     }
 
-    // private void OnAttack()
-    // {
-    //     animator.SetTrigger(LightAttack);
-    // }
+    private void OnAttack()
+    {
+        animator.SetTrigger(LightAttack);
+    }
 
     public void LightThrust()
     {
