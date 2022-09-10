@@ -28,6 +28,7 @@ namespace Player
         {
             PlayerSpawnDetails spawnDetails = spawning[input.playerIndex];
             input.transform.position = spawnDetails.spawnPoint.position;
+            //input.GetComponent<CharacterController>().
 
             if (_manager.maxPlayerCount == input.playerIndex + 1)
             {

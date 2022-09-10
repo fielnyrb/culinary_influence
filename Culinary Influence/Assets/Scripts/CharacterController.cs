@@ -20,6 +20,8 @@ public class CharacterController : MonoBehaviour
 
     [Header("Other")] [SerializeField] private Animator animator;
 
+    [SerializeField] private HealthSystem healthSystem;
+
     private Rigidbody2D _body;
 
     private bool _isGrounded;
@@ -30,7 +32,7 @@ public class CharacterController : MonoBehaviour
     public float FacingDirection { get; private set; }
 
 
-    private Vector3 GroundCheckPosition => transform.position + (Vector3) groundCheckOffset;
+    private Vector3 GroundCheckPosition => transform.position + (Vector3)groundCheckOffset;
 
     private void Start()
     {
@@ -50,7 +52,7 @@ public class CharacterController : MonoBehaviour
         Vector3 position = transform.position;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(position + (Vector3) centerOfMass, 0.2f);
+        Gizmos.DrawSphere(position + (Vector3)centerOfMass, 0.2f);
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(GroundCheckPosition, groundCheckRadius);
@@ -116,8 +118,8 @@ public class CharacterController : MonoBehaviour
         );
     }
 
-    public void Damage(float amount, float direction)
+    public void Damage(float amount, Vector2 direction)
     {
-        Debug.Log("Ouch! You damaged me with " +  amount.ToString() + " in " + direction.ToString() + " direction!");
+        _body.AddForce(direction * amount, ForceMode2D.Impulse);
     }
 }
