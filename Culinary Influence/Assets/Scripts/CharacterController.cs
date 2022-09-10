@@ -115,4 +115,9 @@ public class CharacterController : MonoBehaviour
             movementSmoothing
         );
     }
+
+    public void Damage(float amount, float direction)
+    {
+        Debug.Log("Ouch! You damaged me with " +  amount.ToString() + " in " + direction.ToString() + " direction!");
+    }
 }
