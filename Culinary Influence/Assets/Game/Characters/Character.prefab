@@ -1,67 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3695684442093522832
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9168518122684674593}
-  - component: {fileID: 7703445758700897728}
-  - component: {fileID: 7683542840353146410}
-  m_Layer: 8
-  m_Name: Attack Area
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &9168518122684674593
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695684442093522832}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3604914300668360362}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7703445758700897728
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695684442093522832}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &7683542840353146410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695684442093522832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01bb51acf08c04d5a965f34a09033b83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 3450718047137517002}
 --- !u!1 &4391647966364331162
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,6 +11,8 @@ GameObject:
   - component: {fileID: 3602253901419238540}
   - component: {fileID: 3792465245588411851}
   - component: {fileID: 7965468493789640856}
+  - component: {fileID: 3806135591015122891}
+  - component: {fileID: 1986512103699769882}
   m_Layer: 6
   m_Name: Visuals
   m_TagString: Untagged
@@ -263,6 +203,44 @@ PolygonCollider2D:
       - {x: 0.07743324, y: -0.6465936}
       - {x: 0.17251405, y: -0.6264249}
       - {x: 0.25895116, y: -0.59473133}
+--- !u!114 &3806135591015122891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4391647966364331162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a582ad01fb6468fb4ea5cc65e5a7b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightAttack:
+    damageAmount: 2.8
+    cooldown: 0.5
+    thrustForce: 10
+    direction: 0
+  heavyAttack:
+    damageAmount: 20.6
+    cooldown: 1
+    thrustForce: 20
+    direction: 0
+  target:
+    serializedVersion: 2
+    m_Bits: 64
+  areaRadius: 0.7
+--- !u!114 &1986512103699769882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4391647966364331162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17352ad9dec86974b881c240ce973028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8010017287791503726
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +274,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3602253901419238540}
-  - {fileID: 9168518122684674593}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -342,9 +319,8 @@ MonoBehaviour:
     m_Bits: 128
   groundCheckOffset: {x: 0, y: 0}
   groundCheckRadius: 0.12
-  lightAttackDistance: 10
-  attack: {fileID: 7683542840353146410}
-  animator: {fileID: 7825696585833355833}
+  attackController: {fileID: 3806135591015122891}
+  healthSystem: {fileID: 1986512103699769882}
 --- !u!114 &2972504084061647040
 MonoBehaviour:
   m_ObjectHideFlags: 0

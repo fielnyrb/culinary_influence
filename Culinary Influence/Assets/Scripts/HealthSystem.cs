@@ -1,23 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float _currentPercentage = 1.0f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public event Action<float, Vector2> OnDamaged;
 
-    public void Damage(float amount, float direction)
+    public void Damage(float amount, Vector2 direction)
     {
+        _currentPercentage += amount;
+        OnDamaged?.Invoke(_currentPercentage, direction);
 
+        Debug.Log($"Ouch! You damaged me with {amount} from {direction}! My Percentage is now {_currentPercentage}!");
     }
 }

@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Attack",
+                    "name": "Attack Light",
                     "type": "Button",
                     "id": "5793978e-4376-48bd-abd8-6499f79f6efe",
                     "expectedControlType": "Button",
@@ -27,6 +27,15 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "09ff20c7-a481-4e79-9faa-a1c8204e016a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack Heavy",
+                    "type": "Button",
+                    "id": "306f8aae-c8fd-49c0-884f-decdc861d561",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -195,7 +204,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Attack",
+                    "action": "Attack Light",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -206,7 +215,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "Attack Light",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -217,7 +226,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "Attack Light",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f205b83f-003d-40a3-a416-0e9d14aa1614",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack Heavy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

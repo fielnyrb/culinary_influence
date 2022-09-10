@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3333763120056884613, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.035
+      objectReference: {fileID: 0}
     - target: {fileID: 3450718047137517002, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: speed
       value: 10
@@ -18,7 +22,7 @@ PrefabInstance:
     - target: {fileID: 3450718047137517002, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: attackArea
       value: 
-      objectReference: {fileID: 6272992661502157847}
+      objectReference: {fileID: 0}
     - target: {fileID: 3450718047137517002, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: centerOfMass.y
       value: -0.45
@@ -153,8 +157,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
---- !u!4 &6272992661502157847 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9168518122684674593, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
-  m_PrefabInstance: {fileID: 2896724066300728886}
-  m_PrefabAsset: {fileID: 0}

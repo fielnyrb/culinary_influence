@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class CharacterController : MonoBehaviour
 {
-    private static readonly int LightAttack = Animator.StringToHash("Light Attack");
+    private const float MaxDamageForce = 100.0f;
 
     [Header("Physics")] [SerializeField] private Vector2 centerOfMass;
 
@@ -16,28 +16,28 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Vector2 groundCheckOffset;
     [SerializeField] private float groundCheckRadius;
 
-    [Header("Attack")] [SerializeField] private float lightAttackDistance;
-
-    [Header("Other")] [SerializeField] private Animator animator;
-
+    [Header("Attack")] [SerializeField] private AttackController attackController;
     [SerializeField] private HealthSystem healthSystem;
 
     private Rigidbody2D _body;
+
+    private float _direction;
+
+    private float _facingDirection;
 
     private bool _isGrounded;
 
     private Vector2 _storedVelocity = Vector2.zero;
 
-    public float Direction { get; private set; }
-    public float FacingDirection { get; private set; }
 
-
-    private Vector3 GroundCheckPosition => transform.position + (Vector3)groundCheckOffset;
+    private Vector3 GroundCheckPosition => transform.position + (Vector3) groundCheckOffset;
 
     private void Start()
     {
         _body = GetComponent<Rigidbody2D>();
         _body.centerOfMass = centerOfMass;
+
+        healthSystem.OnDamaged += Damage;
     }
 
     // Update is called once per frame
@@ -47,12 +47,17 @@ public class CharacterController : MonoBehaviour
         CalculateGroundCheck();
     }
 
+    private void OnDestroy()
+    {
+        healthSystem.OnDamaged -= Damage;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Vector3 position = transform.position;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(position + (Vector3)centerOfMass, 0.2f);
+        Gizmos.DrawSphere(position + (Vector3) centerOfMass, 0.2f);
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(GroundCheckPosition, groundCheckRadius);
@@ -61,16 +66,16 @@ public class CharacterController : MonoBehaviour
     private void OnMove(InputValue input)
     {
         var direction = input.Get<Vector2>();
-        Direction = direction.x;
+        _direction = direction.x;
 
-        if (Direction == 0.0f)
+        if (_direction == 0.0f)
         {
             return;
         }
 
         // the direction can range from -1.0...1.0
         // the facing direction however, requires to be a whole number (-1 or 1)
-        FacingDirection = Mathf.Sign(Direction);
+        _facingDirection = Mathf.Sign(_direction);
     }
 
     private void OnJump()
@@ -83,14 +88,14 @@ public class CharacterController : MonoBehaviour
         _body.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
     }
 
-    private void OnAttack()
+    private void OnAttackLight()
     {
-        animator.SetTrigger(LightAttack);
+        attackController.AttackLight(_facingDirection, thrust => _body.AddForce(thrust, ForceMode2D.Impulse));
     }
 
-    public void LightThrust()
+    private void OnAttackHeavy()
     {
-        _body.AddForce(Vector2.right * FacingDirection * lightAttackDistance, ForceMode2D.Impulse);
+        attackController.AttackHeavy(_facingDirection, thrust => _body.AddForce(thrust, ForceMode2D.Impulse));
     }
 
     private void CalculateGroundCheck()
@@ -105,7 +110,7 @@ public class CharacterController : MonoBehaviour
     private void CalculateMovement()
     {
         Vector2 velocity = _body.velocity;
-        float stepCount = Direction * speed;
+        float stepCount = _direction * speed;
 
         Vector3 targetVelocity = new Vector2(stepCount, velocity.y);
 
@@ -120,6 +125,9 @@ public class CharacterController : MonoBehaviour
 
     public void Damage(float amount, Vector2 direction)
     {
-        _body.AddForce(direction * amount, ForceMode2D.Impulse);
+        float appliedForce = MaxDamageForce / 100 * amount;
+        Debug.Log(appliedForce);
+
+        _body.AddForce(direction * appliedForce, ForceMode2D.Impulse);
     }
 }
