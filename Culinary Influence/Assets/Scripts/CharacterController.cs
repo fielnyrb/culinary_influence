@@ -17,7 +17,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float groundCheckRadius;
 
     [Header("Attack")] [SerializeField] private AttackController attackController;
-    [SerializeField] private HealthSystem healthSystem;
+    [SerializeField] public HealthSystem healthSystem;
 
     private Rigidbody2D _body;
 
@@ -38,6 +38,7 @@ public class CharacterController : MonoBehaviour
         _body.centerOfMass = centerOfMass;
 
         healthSystem.OnDamaged += Damage;
+
     }
 
     // Update is called once per frame

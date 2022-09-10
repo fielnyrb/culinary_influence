@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
@@ -13,5 +16,10 @@ public class HealthSystem : MonoBehaviour
         OnDamaged?.Invoke(_currentPercentage, direction);
 
         Debug.Log($"Ouch! You damaged me with {amount} from {direction}! My Percentage is now {_currentPercentage}!");
+    }
+
+    public void IncreaseHealth(TextMeshProUGUI healthStatus, int amountToAdd)
+    {
+        healthStatus.text = amountToAdd.ToString() + "%";
     }
 }
