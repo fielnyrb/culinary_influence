@@ -126,8 +126,6 @@ public class CharacterController : MonoBehaviour
     public void Damage(float amount, Vector2 direction)
     {
         float appliedForce = MaxDamageForce / 100 * amount;
-        Debug.Log(appliedForce);
-
         _body.AddForce(direction * appliedForce, ForceMode2D.Impulse);
     }
 }
