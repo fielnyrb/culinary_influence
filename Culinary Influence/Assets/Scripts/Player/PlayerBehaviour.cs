@@ -8,14 +8,21 @@ namespace Player
     {
         [SerializeField] private ScriptableEnum definition;
 
-        private PreferredParty _party;
+        [SerializeField] private string description;
+        [SerializeField] private Vector2 offset;
+        [SerializeField] private Sprite avatar;
+
 
         public ScriptableEnum Definition => definition;
-        public PreferredParty Party => _party;
+        public PreferredParty Party { get; private set; }
+
+        public string Description => description;
+        public Vector2 Offset => offset;
+        public Sprite Avatar => avatar;
 
         public void SetParty(PreferredParty party)
         {
-            _party = party;
+            Party = party;
         }
     }
 }

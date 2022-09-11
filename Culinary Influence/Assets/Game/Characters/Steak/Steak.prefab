@@ -8,9 +8,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: avatar
+      value: 
+      objectReference: {fileID: -350676899, guid: c23bd72fec1a9431bb31c3f3b7a8db3e, type: 3}
+    - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: definition
       value: 
       objectReference: {fileID: 11400000, guid: 24eb2646d1f9a4f3fb67aa9fbc8b0c01, type: 2}
+    - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: description
+      value: The Tenderiser
+      objectReference: {fileID: 0}
     - target: {fileID: 3450718047137517002, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: speed
       value: 10

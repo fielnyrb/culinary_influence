@@ -12,9 +12,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: avatar
+      value: 
+      objectReference: {fileID: -1430409957, guid: c23bd72fec1a9431bb31c3f3b7a8db3e, type: 3}
+    - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: definition
       value: 
       objectReference: {fileID: 11400000, guid: 895c6f2fccd5d4f4ea74ed8b4309c828, type: 2}
+    - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: description
+      value: Your Eggsellency
+      objectReference: {fileID: 0}
     - target: {fileID: 3333763120056884613, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.035

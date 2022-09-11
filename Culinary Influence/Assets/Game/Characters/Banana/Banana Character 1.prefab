@@ -8,9 +8,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: avatar
+      value: 
+      objectReference: {fileID: 1311173438, guid: c23bd72fec1a9431bb31c3f3b7a8db3e, type: 3}
+    - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: definition
       value: 
       objectReference: {fileID: 11400000, guid: 6d4940a09d4564b4ca0940c2c8b04995, type: 2}
+    - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: description
+      value: A peeler
+      objectReference: {fileID: 0}
     - target: {fileID: 3450718047137517002, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: speed
       value: 10

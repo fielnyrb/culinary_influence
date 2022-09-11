@@ -1,5 +1,6 @@
 using System;
 using Audiences;
+using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utility;
@@ -11,6 +12,7 @@ namespace Player
     {
         public Transform spawnPoint;
         public HealthUI healthUIElement;
+        public IntroductionUi introduction;
     }
 
     [RequireComponent(typeof(PlayerInputManager))]
@@ -75,6 +77,8 @@ namespace Player
             {
                 _manager.DisableJoining();
             }
+
+            spawnDetails.introduction.Play(b.Avatar, b.Offset, b.Description);
         }
 
         private void TryUpdateNextPlayer()
