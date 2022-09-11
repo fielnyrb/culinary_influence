@@ -33,5 +33,10 @@ namespace UI
         {
             SceneManager.LoadScene("Main");
         }
+
+        public void GoToMainMenu()
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
