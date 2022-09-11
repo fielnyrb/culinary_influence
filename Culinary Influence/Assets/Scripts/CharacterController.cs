@@ -18,6 +18,8 @@ public class CharacterController : MonoBehaviour
 
     [Header("Attack")] [SerializeField] private AttackController attackController;
     [SerializeField] public HealthSystem healthSystem;
+    [SerializeField] public ParticleSystem lightAttackParticles;
+    [SerializeField] public ParticleSystem heavyAttackParticles;
 
     private Rigidbody2D _body;
 
@@ -91,11 +93,13 @@ public class CharacterController : MonoBehaviour
     private void OnAttackLight()
     {
         attackController.AttackLight(_facingDirection, thrust => _body.AddForce(thrust, ForceMode2D.Impulse));
+        lightAttackParticles.Play();
     }
 
     private void OnAttackHeavy()
     {
         attackController.AttackHeavy(_facingDirection, thrust => _body.AddForce(thrust, ForceMode2D.Impulse));
+        heavyAttackParticles.Play();
     }
 
     private void CalculateGroundCheck()

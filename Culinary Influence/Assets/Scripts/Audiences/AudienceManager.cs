@@ -62,26 +62,16 @@ namespace Audiences
             foundMember.SetParty(oppositeParty);
             foundMember.gameObject.SetActive(true);
 
-            int noneCount = _membersMap.Count(x => x.Value.Party == PreferredParty.None);
-            if (noneCount > 0)
-            {
-                return;
-            }
-
             int redCount = _membersMap.Count(x => x.Value.Party == PreferredParty.Red);
             int blueCount = _membersMap.Count(x => x.Value.Party == PreferredParty.Blue);
 
-            if (redCount > blueCount)
+            if (redCount >= 2)
             {
                 gameOver.ShowGameOverScreen(PreferredParty.Red);
             }
-            else if (blueCount > redCount)
+            else if (blueCount >= 2)
             {
                 gameOver.ShowGameOverScreen(PreferredParty.Blue);
-            }
-            else if (blueCount == redCount)
-            {
-                Debug.Log("TIE");
             }
         }
 

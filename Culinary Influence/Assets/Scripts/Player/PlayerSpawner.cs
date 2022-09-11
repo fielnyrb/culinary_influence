@@ -43,6 +43,7 @@ namespace Player
         {
             if (audience.GetNonDecidedMember() == null)
             {
+                _manager.DisableJoining();
                 return;
             }
 
