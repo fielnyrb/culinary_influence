@@ -32,7 +32,7 @@ public class CharacterController : MonoBehaviour
     private Vector2 _storedVelocity = Vector2.zero;
 
 
-    private Vector3 GroundCheckPosition => transform.position + (Vector3) groundCheckOffset;
+    private Vector3 GroundCheckPosition => transform.position + (Vector3)groundCheckOffset;
 
     private void Start()
     {
@@ -59,7 +59,7 @@ public class CharacterController : MonoBehaviour
         Vector3 position = transform.position;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(position + (Vector3) centerOfMass, 0.2f);
+        Gizmos.DrawSphere(position + (Vector3)centerOfMass, 0.2f);
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(GroundCheckPosition, groundCheckRadius);
@@ -78,6 +78,7 @@ public class CharacterController : MonoBehaviour
         // the direction can range from -1.0...1.0
         // the facing direction however, requires to be a whole number (-1 or 1)
         _facingDirection = Mathf.Sign(_direction);
+
     }
 
     private void OnJump()
@@ -129,7 +130,7 @@ public class CharacterController : MonoBehaviour
 
     public void Damage(float amount, Vector2 direction)
     {
-        enabled = false;
+        //enabled = false;
         float appliedForce = MaxDamageForce / 100 * amount;
         _body.AddForce(direction * appliedForce, ForceMode2D.Impulse);
     }
