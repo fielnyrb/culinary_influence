@@ -16,6 +16,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 24eb2646d1f9a4f3fb67aa9fbc8b0c01, type: 2}
     - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: catchphrase
+      value: 
+      objectReference: {fileID: 8300000, guid: 931af3bda5da34bc3a238029c60884f4, type: 3}
+    - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: description
       value: The Tenderiser
       objectReference: {fileID: 0}

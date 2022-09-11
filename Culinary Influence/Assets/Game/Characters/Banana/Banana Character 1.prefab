@@ -16,8 +16,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 6d4940a09d4564b4ca0940c2c8b04995, type: 2}
     - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: catchphrase
+      value: 
+      objectReference: {fileID: 8300000, guid: 7be1a5e99dcf247d9b06cc0122060581, type: 3}
+    - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: description
-      value: A peeler
+      value: A Peeler
       objectReference: {fileID: 0}
     - target: {fileID: 3450718047137517002, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: centerOfMass.y
@@ -90,6 +94,10 @@ PrefabInstance:
     - target: {fileID: 3792465245588411851, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806135591015122891, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: areaRadius
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 7286776859534055415, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: m_LocalPosition.x
