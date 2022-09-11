@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: areaRadius
       value: 1.06
       objectReference: {fileID: 0}
+    - target: {fileID: 4784570446524917454, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 3e1d29a81269349d8baa45699491c25b, type: 2}
     - target: {fileID: 7286776859534055415, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.006
