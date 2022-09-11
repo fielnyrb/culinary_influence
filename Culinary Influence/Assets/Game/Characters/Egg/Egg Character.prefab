@@ -20,6 +20,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 895c6f2fccd5d4f4ea74ed8b4309c828, type: 2}
     - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: catchphrase
+      value: 
+      objectReference: {fileID: 8300000, guid: 306f373a72387493f84b26c60f6879b8, type: 3}
+    - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: description
       value: Your Eggsellency
       objectReference: {fileID: 0}

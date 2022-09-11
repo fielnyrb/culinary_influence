@@ -54,6 +54,8 @@ namespace Player
 
         private void OnPlayerJoined(PlayerInput input)
         {
+            Time.timeScale = 0.0f;
+
             _currentMember.Use();
             TryUpdateNextPlayer();
 
@@ -78,7 +80,7 @@ namespace Player
                 _manager.DisableJoining();
             }
 
-            spawnDetails.introduction.Play(b.Avatar, b.Offset, b.Description);
+            spawnDetails.introduction.Play(b.Avatar, b.Offset, b.Description, b.CatchPhrase);
         }
 
         private void TryUpdateNextPlayer()

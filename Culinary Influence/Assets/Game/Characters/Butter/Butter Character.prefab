@@ -16,6 +16,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 924b2e6c9d75c404d9c0cfd28c852b36, type: 2}
     - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: catchphrase
+      value: 
+      objectReference: {fileID: 8300000, guid: 454bd811b86a149f8875b2fe431ad87f, type: 3}
+    - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: description
       value: Smooth Operator
       objectReference: {fileID: 0}

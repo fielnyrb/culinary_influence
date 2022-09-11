@@ -16,6 +16,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 6d4940a09d4564b4ca0940c2c8b04995, type: 2}
     - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: catchphrase
+      value: 
+      objectReference: {fileID: 8300000, guid: 7be1a5e99dcf247d9b06cc0122060581, type: 3}
+    - target: {fileID: 1457997619834246134, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: description
       value: A peeler
       objectReference: {fileID: 0}

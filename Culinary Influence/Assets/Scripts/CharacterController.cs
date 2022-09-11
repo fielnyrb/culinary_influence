@@ -89,12 +89,22 @@ public class CharacterController : MonoBehaviour
 
     private void OnAttackLight()
     {
+        if (Time.timeScale == 0.0f)
+        {
+            return;
+        }
+
         attackController.AttackLight(_facingDirection, thrust => _body.AddForce(thrust, ForceMode2D.Impulse));
         lightAttackParticles.Play();
     }
 
     private void OnAttackHeavy()
     {
+        if (Time.timeScale == 0.0f)
+        {
+            return;
+        }
+
         attackController.AttackHeavy(_facingDirection, thrust => _body.AddForce(thrust, ForceMode2D.Impulse));
         heavyAttackParticles.Play();
     }
