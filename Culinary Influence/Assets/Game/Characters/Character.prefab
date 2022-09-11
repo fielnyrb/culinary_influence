@@ -9843,7 +9843,7 @@ MonoBehaviour:
   lightAttack:
     damageAmount: 2.8
     cooldown: 0.5
-    thrustForce: 10
+    thrustForce: 5
     direction: 0
     clips:
     - {fileID: 8300000, guid: 421daaf482714a3428107eb4492af9b6, type: 3}
@@ -9852,7 +9852,7 @@ MonoBehaviour:
   heavyAttack:
     damageAmount: 20.6
     cooldown: 1
-    thrustForce: 20
+    thrustForce: 10
     direction: 0
     clips:
     - {fileID: 8300000, guid: 6c79e91743484a541b1944c1286973c5, type: 3}
@@ -10123,3 +10123,4 @@ MonoBehaviour:
   description: 
   offset: {x: 0, y: 0}
   avatar: {fileID: 0}
+  catchphrase: {fileID: 0}
