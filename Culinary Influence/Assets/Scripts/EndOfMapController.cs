@@ -1,24 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using Audiences;
+using Player;
 using UnityEngine;
+using Utility;
 
 public class EndOfMapController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Application.Quit();
-        Debug.Log("Game is over");
+        var playerBehaviour = collision.transform.parent.GetComponent<PlayerBehaviour>();
+        if (!playerBehaviour)
+        {
+            return;
+        }
+
+        OnPlayerLost?.Invoke(playerBehaviour.Definition, playerBehaviour.Party);
+        Destroy(playerBehaviour.gameObject);
     }
+
+    public static event Action<ScriptableEnum, PreferredParty> OnPlayerLost;
 }

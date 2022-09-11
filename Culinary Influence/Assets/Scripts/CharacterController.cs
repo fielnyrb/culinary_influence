@@ -38,11 +38,10 @@ public class CharacterController : MonoBehaviour
         _body.centerOfMass = centerOfMass;
 
         healthSystem.OnDamaged += Damage;
-
     }
 
     // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
         CalculateMovement();
         CalculateGroundCheck();
@@ -126,6 +125,7 @@ public class CharacterController : MonoBehaviour
 
     public void Damage(float amount, Vector2 direction)
     {
+        enabled = false;
         float appliedForce = MaxDamageForce / 100 * amount;
         _body.AddForce(direction * appliedForce, ForceMode2D.Impulse);
     }

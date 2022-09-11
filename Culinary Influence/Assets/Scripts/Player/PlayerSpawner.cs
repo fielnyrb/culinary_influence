@@ -1,7 +1,8 @@
 using System;
-using TMPro;
+using Audiences;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utility;
 
 namespace Player
 {
@@ -9,7 +10,6 @@ namespace Player
     public class PlayerSpawnDetails
     {
         public Transform spawnPoint;
-        public GameObject[] players;
         public HealthUI healthUIElement;
     }
 
@@ -17,32 +17,74 @@ namespace Player
     public class PlayerSpawner : MonoBehaviour
     {
         [SerializeField] private PlayerSpawnDetails[] spawning;
+        [SerializeField] private AudienceManager audience;
 
-        [SerializeField] private HealthSystem healthSystem;
+        private AudienceMember _currentMember;
 
         private PlayerInputManager _manager;
 
         private void Awake()
         {
-            _manager = GetComponent<PlayerInputManager>();
+            EndOfMapController.OnPlayerLost += OnPlayerDied;
         }
 
+        private void Start()
+        {
+            _manager = GetComponent<PlayerInputManager>();
+            TryUpdateNextPlayer();
+        }
+
+        private void OnDestroy()
+        {
+            EndOfMapController.OnPlayerLost -= OnPlayerDied;
+        }
+
+        private void OnPlayerDied(ScriptableEnum player, PreferredParty party)
+        {
+            if (audience.GetNonDecidedMember() == null)
+            {
+                return;
+            }
+
+            _manager.EnableJoining();
+        }
 
         private void OnPlayerJoined(PlayerInput input)
         {
+            _currentMember.Use();
+            TryUpdateNextPlayer();
+
+            if (_currentMember == null)
+            {
+                _manager.DisableJoining();
+            }
+
+
             PlayerSpawnDetails spawnDetails = spawning[input.playerIndex];
             input.transform.position = spawnDetails.spawnPoint.position;
-            CharacterController c = input.GetComponent<CharacterController>();
 
-            //input.GetComponent<CharacterController>().healthSystem.IncreaseHealth(spawnDetails.healthUIElement, 1);
+            var b = input.GetComponent<PlayerBehaviour>();
+            b.SetParty(input.playerIndex % 2 == 0 ? PreferredParty.Blue : PreferredParty.Red);
+
+            var c = input.GetComponent<CharacterController>();
+
             spawnDetails.healthUIElement.Init(c.healthSystem);
 
             if (_manager.maxPlayerCount == input.playerIndex + 1)
             {
                 _manager.DisableJoining();
             }
-
         }
 
+        private void TryUpdateNextPlayer()
+        {
+            _currentMember = audience.GetNonDecidedMember();
+            if (_currentMember == null)
+            {
+                return;
+            }
+
+            _manager.playerPrefab = _currentMember.PeekPlayerPrefab().gameObject;
+        }
     }
 }

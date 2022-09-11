@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 3450718047137517002}
   - component: {fileID: 2972504084061647040}
   - component: {fileID: 7825696585833355833}
+  - component: {fileID: 1457997619834246134}
   m_Layer: 6
   m_Name: Character
   m_TagString: Untagged
@@ -293,7 +294,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 022ad775eb6a24963ac2173389e27fe3, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
@@ -311,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerOfMass: {x: 0, y: 0}
-  speed: 10
+  speed: 2
   movementSmoothing: 0.05
   jumpHeight: 10
   groundMask:
@@ -371,3 +372,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1457997619834246134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8010017287791503726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8bbb90f6ffe7242a1f22d5f62c6f8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  definition: {fileID: 0}

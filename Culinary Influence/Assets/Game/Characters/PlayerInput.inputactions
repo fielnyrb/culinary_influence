@@ -240,6 +240,17 @@
                     "action": "Attack Heavy",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a9aa2aa8-00d4-4593-8ec5-0b06a43e841e",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack Heavy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
