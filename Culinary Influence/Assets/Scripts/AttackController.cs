@@ -15,6 +15,7 @@ public class AttackDefinition
     public float cooldown;
     public float thrustForce;
     public ThrustDirection direction;
+    public AudioClip[] clips;
 
     private float _lastTimeSinceAttack;
 
@@ -23,6 +24,11 @@ public class AttackDefinition
     public void RecordAttack()
     {
         _lastTimeSinceAttack = Time.time;
+    }
+
+    public AudioClip getRandomClip()
+    {
+        return clips[UnityEngine.Random.Range(0, clips.Length)];
     }
 }
 
@@ -33,6 +39,7 @@ public class AttackController : MonoBehaviour
 
     [SerializeField] private LayerMask target;
     [SerializeField] private float areaRadius;
+    [SerializeField] private AudioSource source;
 
     private void OnDrawGizmosSelected()
     {
@@ -55,11 +62,15 @@ public class AttackController : MonoBehaviour
     public void AttackLight(float facingDirection, Action<Vector2> onThrust)
     {
         TryAttackOpponent(lightAttack, facingDirection, onThrust);
+        source.clip = lightAttack.getRandomClip();
+        source.Play();
     }
 
     public void AttackHeavy(float facingDirection, Action<Vector2> onThrust)
     {
         TryAttackOpponent(heavyAttack, facingDirection, onThrust);
+        source.clip = lightAttack.getRandomClip();
+        source.Play();
     }
 
     private bool TryGetOpponent(out HealthSystem health)
