@@ -21,7 +21,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450718047137517002, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: speed
-      value: 10
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450718047137517002, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: jumpHeight
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450718047137517002, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: speedInAir
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3450718047137517002, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: centerOfMass.x
@@ -73,11 +81,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3604914300668360362, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.46979225
       objectReference: {fileID: 0}
     - target: {fileID: 3604914300668360362, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.9095895
       objectReference: {fileID: 0}
     - target: {fileID: 3604914300668360362, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -130,6 +138,18 @@ PrefabInstance:
     - target: {fileID: 3806135591015122891, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: areaRadius
       value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806135591015122891, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: heavyAttack.thrustForce
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806135591015122891, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: lightAttack.thrustForce
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784570446524917454, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
+      propertyPath: m_Mass
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7965468493789640856, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x

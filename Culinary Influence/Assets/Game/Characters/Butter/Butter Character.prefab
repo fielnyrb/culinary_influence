@@ -20,10 +20,6 @@ PrefabInstance:
       value: Smooth Operator
       objectReference: {fileID: 0}
     - target: {fileID: 3450718047137517002, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3450718047137517002, guid: 4e631ca78d344412fa2a81d9ed63a5ed, type: 3}
       propertyPath: groundCheckRadius
       value: 0.18
       objectReference: {fileID: 0}

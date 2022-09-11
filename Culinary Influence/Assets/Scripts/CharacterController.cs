@@ -9,7 +9,7 @@ public class CharacterController : MonoBehaviour
     [Header("Physics")] [SerializeField] private Vector2 centerOfMass;
 
     [Header("Walking")] [SerializeField] private float speed;
-    [SerializeField] [Range(0, .3f)] private float movementSmoothing = .05f;
+    [SerializeField] private float speedInAir;
 
     [Header("Jumping")] [SerializeField] private float jumpHeight = 10.0f;
     [SerializeField] private LayerMask groundMask;
@@ -29,10 +29,7 @@ public class CharacterController : MonoBehaviour
 
     private bool _isGrounded;
 
-    private Vector2 _storedVelocity = Vector2.zero;
-
-
-    private Vector3 GroundCheckPosition => transform.position + (Vector3)groundCheckOffset;
+    private Vector3 GroundCheckPosition => transform.position + (Vector3) groundCheckOffset;
 
     private void Start()
     {
@@ -59,7 +56,7 @@ public class CharacterController : MonoBehaviour
         Vector3 position = transform.position;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(position + (Vector3)centerOfMass, 0.2f);
+        Gizmos.DrawSphere(position + (Vector3) centerOfMass, 0.2f);
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(GroundCheckPosition, groundCheckRadius);
@@ -78,7 +75,6 @@ public class CharacterController : MonoBehaviour
         // the direction can range from -1.0...1.0
         // the facing direction however, requires to be a whole number (-1 or 1)
         _facingDirection = Mathf.Sign(_direction);
-
     }
 
     private void OnJump()
@@ -114,18 +110,8 @@ public class CharacterController : MonoBehaviour
 
     private void CalculateMovement()
     {
-        Vector2 velocity = _body.velocity;
-        float stepCount = _direction * speed;
-
-        Vector3 targetVelocity = new Vector2(stepCount, velocity.y);
-
-        // And then smoothing it out and applying it to the character
-        _body.velocity = Vector2.SmoothDamp(
-            velocity,
-            targetVelocity,
-            ref _storedVelocity,
-            movementSmoothing
-        );
+        float s = _isGrounded ? speed : speedInAir;
+        _body.AddForce(Vector2.right * _direction * s * Time.deltaTime, ForceMode2D.Impulse);
     }
 
     public void Damage(float amount, Vector2 direction)

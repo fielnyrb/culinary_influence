@@ -9938,8 +9938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerOfMass: {x: 0, y: 0}
-  speed: 2
-  movementSmoothing: 0.05
+  speed: 50
+  speedInAir: 10
   jumpHeight: 10
   groundMask:
     serializedVersion: 2
@@ -10013,3 +10013,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   definition: {fileID: 0}
+  description: 
+  offset: {x: 0, y: 0}
+  avatar: {fileID: 0}
