@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Common.Extensions;
+using UI;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Utility;
@@ -12,6 +13,8 @@ namespace Audiences
     {
         public AudienceMember[] members;
         public Transform[] spawnPoints;
+
+        [SerializeField] private GameOverUI gameOver;
 
         private Dictionary<ScriptableEnum, AudienceMember> _membersMap;
 
@@ -70,11 +73,11 @@ namespace Audiences
 
             if (redCount > blueCount)
             {
-                Debug.Log("RED WON!");
+                gameOver.ShowGameOverScreen(PreferredParty.Red);
             }
             else if (blueCount > redCount)
             {
-                Debug.Log("BLUE WON!");
+                gameOver.ShowGameOverScreen(PreferredParty.Blue);
             }
             else if (blueCount == redCount)
             {
